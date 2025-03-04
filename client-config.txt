@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: dbuser
+    password: dbpass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+# Configuration de la librairie d'épuration PDL
+pdl:
+  epuration:
+    api-url: http://api-epuration-pdl.example.com/api/pdl
+    page-size: 10000
+    max-retries: 3
+    cron-expression: "0 0 2 ? * SUN"  # Tous les dimanches à 2h du matin
+    scheduler-enabled: true
