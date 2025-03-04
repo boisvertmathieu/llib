@@ -1,6 +1,6 @@
 package com.votreentreprise.pdlepuration.service;
 
-import com.votreentreprise.pdlepuration.model.PdlModel;
+import org.openapi.client.model.ContenuPageRessource;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public interface PdlPurgeHandler {
      * @throws PdlPurgeException Si une erreur survient pendant l'épuration
      */
     @Transactional
-    void purgeData(List<PdlModel> pdls) throws PdlPurgeException;
+    void purgeData(List<ContenuPageRessource> pdls) throws PdlPurgeException;
     
     /**
      * Exception levée en cas d'erreur lors de l'épuration

@@ -3,9 +3,9 @@ package com.votreentreprise.pdlepuration.service;
 import com.votreentreprise.pdlepuration.client.EpurationPdlClient;
 import com.votreentreprise.pdlepuration.db.EpurationHistory;
 import com.votreentreprise.pdlepuration.db.EpurationHistoryRepository;
-import com.votreentreprise.pdlepuration.model.PdlModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.openapi.client.model.ContenuPageRessource;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -32,7 +32,7 @@ public class EpurationService {
         log.info("Début de l'épuration pour la période du {} au {}", dateDebut, dateFin);
         
         LocalDateTime startTime = LocalDateTime.now();
-        List<PdlModel> pdlList = new ArrayList<>();
+        List<ContenuPageRessource> pdlList = new ArrayList<>();
         
         try {
             // Récupérer tous les PDL à épurer

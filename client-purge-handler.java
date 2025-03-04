@@ -3,10 +3,10 @@ package com.votreentreprise.api.configuration;
 import com.votreentreprise.api.repository.ClientRepository;
 import com.votreentreprise.api.repository.ContractRepository;
 import com.votreentreprise.api.repository.MeasureRepository;
-import com.votreentreprise.pdlepuration.model.PdlModel;
 import com.votreentreprise.pdlepuration.service.PdlPurgeHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.openapi.client.model.ContenuPageRessource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,13 +24,13 @@ public class CustomPdlPurgeHandler implements PdlPurgeHandler {
 
     @Override
     @Transactional
-    public void purgeData(List<PdlModel> pdls) throws PdlPurgeException {
+    public void purgeData(List<ContenuPageRessource> pdls) throws PdlPurgeException {
         try {
             log.info("Début de l'épuration personnalisée pour {} PDLs", pdls.size());
             
             // Extraire les identifiants de PDL
             List<String> pdlIds = pdls.stream()
-                    .map(PdlModel::getPdlId)
+                    .map(ContenuPageRessource::getPdl)
                     .collect(Collectors.toList());
             
             // Log des PDLs à épurer
